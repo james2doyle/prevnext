@@ -1,16 +1,10 @@
-<div style="padding-top:10px;">
-<?php if( ( $this->uri->segment(1) == 'blog' ) && ( $id != 0 )  ) {?>
-	<div style="float:left;">
-		<?php if($prev_url != '') 
-		echo "&nbsp;&lt;";
-		?>
-		<a href='<?php echo $prev_url ?>'><?php echo $prev_title?></a>
-	</div>
-	<div style="float:right;">
-		<a href='<?php echo $next_url?>'><?php echo $next_title?></a>
-		<?php if($next_url != '') 
-		echo "&nbsp;&gt;";
-		?>
-	</div>
-<?php ; } ?>
+<div class="widget-prevnext">
+<?php if( ( $this->uri->segment(1) == 'blog' ) && ( $id != 0 ) ): ?>
+	<?php if (!empty($prev_title)): ?>
+	<div class="prevnext-prev-link">&lt; Previous Post: <a href="<?php echo $prev_url ?>" title="<?php echo $prev_title ?>"><?php echo $prev_title ?></a></div>
+	<?php endif ?>
+	<?php if (!empty($next_title)): ?>
+	<div class="prevnext-next-link">Next Post: <a href="<?php echo $next_url?>" title="<?php echo $next_title ?>"><?php echo $next_title ?></a> &gt;</div>
+	<?php endif ?>
+<?php endif; ?>
 </div>
